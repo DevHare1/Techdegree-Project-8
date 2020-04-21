@@ -1,0 +1,70 @@
+/* Base Styles */
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 40px;
+  padding: 0;
+  background: rgb(245, 246, 248);
+}
+
+/* Text Styles*/
+
+h1 {
+  text-transform: uppercase;
+  margin: 30px 0;
+  font-size: 1em;
+  font-weight: 500;
+  color: #555;
+}
+
+.profile-text h3 {
+  font-size: 0.9em;
+  padding: 0;
+  margin: 0;
+}
+
+.email,
+.location {
+  font-size: 0.7em;
+  padding: 2px;
+  margin: 0;
+}
+
+/* Main Styles*/
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  border-radius: 5px;
+  border: 1px solid rgb(204, 204, 204);
+}
+
+.card:hover {
+  cursor: pointer;
+  border: solid 2px black;
+}
+
+.profile-image {
+  border-radius: 50%;
+  margin: 15px;
+}
+
+.profile-text {
+  margin: auto 0;
+}
+
+/* Popup Styles*/
+#popupBox {
+  display: none;
+}
