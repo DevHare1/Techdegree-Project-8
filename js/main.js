@@ -9,7 +9,7 @@ fetch(url)
   .then((response) => response.json())
   .then((data) => {
     makeEmployeeCard(data.results);
-    makePopUp(data.results);
+    makePopup(data.results);
   })
   .catch((error) => console.log("Something isn't right, try again.", error));
 
@@ -21,8 +21,8 @@ function makeEmployeeCard(data) {
             <img class="profile-image" src= ${data[i].picture.medium} alt= ${data[i].name.first} ${data[i].name.last} />
           <div class="profile-text">
             <h3>${data[i].name.first} ${data[i].name.last}</h3>
-            <p class="email">${data[i].email}</p>
-            <p class="location">${data[i].location.city}</p>
+            <p class="profile-email">${data[i].email}</p>
+            <p class="profile-location">${data[i].location.city}</p>
           </div>
           </div>
           `;
@@ -31,15 +31,16 @@ function makeEmployeeCard(data) {
 }
 
 // Create html for popup card
-function makePopUp(data) {
+function makePopup(data) {
   for (i = 0; i < data.length; i++) {
     let html = `
         <div class="popup-card" id= "person${i}">
+            <span class="close">&times;</span>
             <img class="popup-image" src=${data[i].picture.large} alt= ${data[i].name.first} ${data[i].name.last} />
             <div class="popup-profile-text">
               <h3>${data[i].name.first} ${data[i].name.last}</h3>
-              <p class="email">${data[i].email}</p>
-              <p class="location">${data[i].location.city}</p>
+              <p class="popup=email">${data[i].email}</p>
+              <p class="popup-location">${data[i].location.city}</p>
             </div>
             <div class="popup-info">
               <p class="phone">${data[i].phone}</p>
@@ -87,6 +88,15 @@ function closePopup() {
 // Event listener to close popup card
 popup.addEventListener("click", (e) => {
   if (e.target.classList.contains("close")) {
+    closePopup();
+  }
+});
+
+// Event listener that closes or changes popup when clicking the x or arrows
+popup.addEventListener("click", (e) => {
+  if (e.target.classList.contains("close")) {
+    closePopup();
+  } else if (e.target === popup) {
     closePopup();
   }
 });
