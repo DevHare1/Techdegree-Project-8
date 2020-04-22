@@ -18,7 +18,7 @@ function makeEmployeeCard(data) {
   for (i = 0; i < data.length; i++) {
     let html = `
           <div class="card" id= "${i}">
-            <img class="profile-image" src= ${data[i].picture.medium} alt= ${data[i].name.first} ${data[i].name.last} />
+            <img class="profile-image" src= ${data[i].picture.large} alt= ${data[i].name.first} ${data[i].name.last} />
           <div class="profile-text">
             <h3>${data[i].name.first} ${data[i].name.last}</h3>
             <p class="profile-email">${data[i].email}</p>
@@ -85,14 +85,7 @@ function closePopup() {
   popup.children[personIndex].style.display = "none";
 }
 
-// Event listener to close popup card
-popup.addEventListener("click", (e) => {
-  if (e.target.classList.contains("close")) {
-    closePopup();
-  }
-});
-
-// Event listener that closes or changes popup when clicking the x or arrows
+// Event listener that closes popup when clicking the x
 popup.addEventListener("click", (e) => {
   if (e.target.classList.contains("close")) {
     closePopup();
